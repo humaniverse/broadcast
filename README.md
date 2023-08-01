@@ -4,7 +4,7 @@
 [![Project Status: WIP – Initial development is in progress, but there
 has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/MikeJohnPage/broadcast/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/MikeJohnPage/broadcast/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/MikeJohnPage/broadcast/actions/workflows/check-release.yaml/badge.svg)](https://github.com/MikeJohnPage/broadcast/actions/workflows/check-release.yaml)
 <!-- badges: end -->
 
 ## Overview
@@ -21,5 +21,6 @@ devtools::install_github("humaniverse/geographr")
 
 ## Usage
 Call `broadcast::broadcast()` in the root directory of your R package to
-broadcast `.rda` files from your `data/` folder, into `.csv` files in
-`inst/extdata`. Alternative paths can be supplied.
+broadcast .rda files from your `data/` folder into .csv files in
+`inst/extdata`. Alternative paths can be supplied using the args `from` and
+`to`.
