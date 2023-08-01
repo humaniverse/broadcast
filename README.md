@@ -16,7 +16,7 @@ You can install the development version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("humaniverse/geographr")
+devtools::install_github("humaniverse/broadcast")
 ```
 
 ## Usage
