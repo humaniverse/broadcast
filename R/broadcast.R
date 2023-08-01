@@ -32,7 +32,7 @@ broadcast <- function(from = "data", to = "inst/extdata") {
   data_files <- list.files(path = from, pattern = "\\.rda$")
 
   # Create a progress bar
-  pb <- txtProgressBar(min = 0, max = length(data_files), style = 3)
+  pb <- utils::txtProgressBar(min = 0, max = length(data_files), style = 3)
 
   # Use lapply function
   lapply(seq_along(data_files), function(i) {
@@ -42,7 +42,7 @@ broadcast <- function(from = "data", to = "inst/extdata") {
     save_broadcast(data_name, to)
 
     # Update the progress bar
-    setTxtProgressBar(pb, i)
+    utils::setTxtProgressBar(pb, i)
   })
 
   # Close the progress bar
