@@ -9,3 +9,17 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 ## Overview
 Broadcast data from your R package to the world
+
+## Installation
+You can install the development version from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("humaniverse/geographr")
+```
+
+## Usage
+Call `broadcast::broadcast()` in the root directory of your R package to
+broadcast `.rda` files from your `data/` folder, into `.csv` files in
+`inst/extdata`. Alternative paths can be supplied.
