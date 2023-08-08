@@ -1,3 +1,24 @@
+#' Check and Create a Specified Folder
+#'
+#' This function checks whether the specified folder exists within the current
+#' directory. If the folder does not exist, it is created.
+#'
+#' @param folder The path to the folder that needs to be checked and possibly
+#'  created.
+#'
+#' @return None, this function is called for its side effects.
+#'
+#' @keywords internal
+#' @examples
+#' \dontrun{
+#' check_folder("path/to/folder")
+#' }
+check_folder <- function(folder) {
+  if (!dir.exists(folder)) {
+    dir.create(folder, recursive = TRUE)
+  }
+}
+
 #' Check if a File Path is Valid
 #'
 #' This function checks if the provided 'path' argument is a valid file path.
@@ -18,6 +39,43 @@
 check_path <- function(path) {
   if (!file.exists(path)) {
     stop("The supplied 'path' does not exist or is not valid.")
+  }
+}
+
+#' Manage the Broadcast Folder in .Rbuildignore File
+#'
+#' This internal function checks whether the `.Rbuildignore` file exists and
+#' then appends the `.broadcast` folder. If the file does not exist, the user is
+#' prompted whether they want to create it. It's used within the package and is
+#' not intended to be called by the end user.
+#'
+#' @return None, this function is called for its side effects.
+#'
+#' @keywords internal
+#' @seealso \code{\link{append_broadcast}} for the function that appends the
+#'  broadcast folder.
+#' @examples
+#' \dontrun{
+#' check_rbuildignore()
+#' }
+check_rbuildignore <- function() {
+  if (file.exists(".Rbuildignore")) {
+    append_broadcast(".Rbuildignore")
+    cat("Folder `.broadcast` appended to", ".Rbuildignore", "\n")
+  } else {
+    create_file <- readline(
+      prompt = paste(
+        ".Rbuildignore",
+        "does not exist. Would you like to create it? (y/n): "
+      )
+    )
+    if (tolower(create_file) == "y") {
+      file.create(".Rbuildignore")
+      append_broadcast(".Rbuildignore")
+      cat("File", ".Rbuildignore", "created and appended with `.broadcast`\n")
+    } else {
+      cat("File", ".Rbuildignore", "was not created\n")
+    }
   }
 }
 
