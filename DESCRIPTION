@@ -5,7 +5,8 @@ Authors@R: c(
     person("Mike", "Page", email = "mpage@redcross.org.uk", role = "cre"),
     person(family = "British Red Cross", role = "cph")
     )
-Description: What the package does (one paragraph).
+Description: The broadcast package allows you to broadcast `.rda` files saved in
+    one folder to `.csv` files in another called `.broadcast`.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

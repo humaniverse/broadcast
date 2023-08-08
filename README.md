@@ -21,6 +21,8 @@ devtools::install_github("humaniverse/broadcast")
 
 ## Usage
 Call `broadcast::broadcast()` in the root directory of your R package to
-broadcast .rda files from your `data/` folder into .csv files in
-`inst/extdata`. Alternative paths can be supplied using the args `from` and
-`to`.
+broadcast .rda files from your `data/` folder into .csv files in a folder called
+`.broadcast`. Alternative paths can be supplied using the arg `from`. An
+optional file called `.broadcastignore` can be specified in the `.broadcast`
+folder to ignore broadcasting certain file types. This additional file should
+use the same syntax as `.gitignore`.
